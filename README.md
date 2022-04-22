@@ -1,2 +1,1 @@
-# My-Codewars-Solutions-Python
-My Codewars Solutions Python
+<h1 align="center">My-Codewars-Solutions-Python<h1>
