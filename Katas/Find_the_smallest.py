@@ -2,6 +2,7 @@ def smallest(n):
     new_number = n
     old_index = 0
     new_index = 0
+    nums = []
     for i in range(len(str(n))):
         numbers_list = [x for x in str(n)]
         digit = numbers_list.pop(i)
