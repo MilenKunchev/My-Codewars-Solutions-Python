@@ -13,4 +13,4 @@ def smallest(n):
     return min(moves(n))
 
 
-print(smallest(321))  # [1432, 3, 0]
+print(smallest(321))  # [132, 2, 0]

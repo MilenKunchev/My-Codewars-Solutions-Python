@@ -18,4 +18,4 @@ def smallest(n):
     return [new_number, old_index, new_index]
 
 
-print(smallest(321))  # [1432, 3, 0]
+print(smallest(321))  # [132, 2, 0]
