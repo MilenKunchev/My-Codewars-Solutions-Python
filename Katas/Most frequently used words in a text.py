@@ -2,10 +2,10 @@ import re
 
 
 def top_3_words(text):
-    elements = {}
-    pattern = r"[^a-z^']"
-    text = text.lower()
-    my_list = re.split(pattern, text)
+    elements = {}  # key = word value =how meny time times is used
+    pattern = r"[^a-z^']"  # Regex pattern to mark unnecessary elements
+    text = text.lower()  # The result should be lowercase, so we do the hole text lowercase
+    my_list = re.split(pattern, text)  # Split the text by regex pattern, add result to list
 
     for element in my_list:
         if element == "" or element == "'" or element == "'''":
@@ -30,3 +30,5 @@ in the lance-rack, an old buckler, a lean hack, and a greyhound for
 coursing. An olla of rather more beef than mutton, a salad on most
 nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra
 on Sundays, made away with three-quarters of his income."""))  # ["a", "of", "on"]
+
+
