@@ -1,9 +1,3 @@
-languages = ['Java', 'Python', 'JavaScript']
-versions = [14, 3, 6]
-
-result = zip(languages, versions)
-
-
 def is_incrementing(number):
     return str(number) in '1234567890'
 
