@@ -20,12 +20,11 @@ def is_interesting(number, awesome_phrases):
 
     if number >= 100 and any(test(number) for test in tests):
         return 2
-    if number + 1 >= 99 and any(test(number+1) for test in tests):
+    if number + 1 >= 99 and any(test(number + 1) for test in tests):
         return 1
-    if number + 2 >= 100 and any(test(number+2) for test in tests):
+    if number + 2 >= 100 and any(test(number + 2) for test in tests):
         return 1
     return 0
-
 
 # # "boring" numbers
 # print(is_interesting(97, [1337, 256])) #0
