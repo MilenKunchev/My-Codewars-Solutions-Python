@@ -3,8 +3,10 @@ def count_change(money, coins):
     table = [0] * (money + 1)
     table[0] = 1
     for i in range(0, coins_count):
-        for j in range(coins[i], money + 1):
-            table[j] += table[j - coins[i]]
+        coin = coins[i]
+        for j in range(coin, money + 1):
+            new_value = table[j - coins[i]]
+            table[j] += new_value
 
     return table[money]
 
