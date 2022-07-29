@@ -1,3 +1,6 @@
+import itertools
+
+
 def get_pins(observed):
     result = []
 
@@ -18,11 +21,13 @@ def get_pins(observed):
             if digit - 3 > 0:
                 nums.add(digit - 3)
             observed //= 10
-        return nums
+        return [str(x) for x in nums]
 
     possible_digits = get_possible_digits(observed)
-
-    return possible_digits
+    result = []
+    for subset in itertools.product(possible_digits, repeat=len(str(observed))):
+        result.append(''.join(subset))
+    return result
 
 
 print(get_pins(11))
