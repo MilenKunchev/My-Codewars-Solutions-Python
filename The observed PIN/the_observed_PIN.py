@@ -25,7 +25,7 @@ def get_pins(observed):
     return get_possible_digits(observed)
 
 
-print(sorted(get_pins(1911)))
+print(get_pins(1911))
 # expected = sorted(
 #     ['20', '25', '27', '28', '29', '40', '45', '47', '48', '49', '50', '55', '57', '58',
 #      '59', '60', '65', '67', '68', '69', '80', '85', '87', '88', '89'])
