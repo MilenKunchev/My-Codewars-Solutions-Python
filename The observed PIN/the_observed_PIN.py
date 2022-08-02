@@ -1,5 +1,7 @@
+from itertools import product as pr
 def get_pins(observed):
-    count_digits = len(str(observed))
+    # count_digits = len(str(observed))  TODO Remove this it is equal to len ot possible digits array
+    all_pins = set()
 
     def get_possible_digits(noted_pin):
         possible = {
@@ -20,22 +22,18 @@ def get_pins(observed):
             result.append(possible[char])
         return result
 
-    def gen_pins(idx, digits, pin, all_pins):
-        if idx == count_digits:
-            return
-        for combination in digits:
-            # TODO variations from nums in digits
-            gen_pins(idx + 1, digits, pin, all_pins)
-
-    possible_digits = get_possible_digits(observed)
-    gen_pins(0, possible_digits, [], [])
-
-    return None
+    list_of_pins = list()
+    pins =  list(pr(*get_possible_digits(observed)))
+    for x in pins:
+        list_of_pins.append(''.join(x))
+    return list_of_pins
 
 
-print(get_pins(369))
-# expected = sorted(
-#     ["339","366","399","658","636","258","268","669","668","266","369","398","256","296","259","368",
-#     "638","396","238","356","659","639","666","359","336","299","338","696","269","358","656","698","699","298","236","239"])
+print(sorted(get_pins(369)))
+expected = sorted(
+    ['236', '238', '239', '256', '258', '259', '266', '268', '269', '296', '298',
+     '299', '336', '338', '339', '356', '358', '359', '366', '368', '369', '396',
+     '398', '399', '636', '638', '639', '656', '658', '659', '666', '668', '669', '696', '698', '699']
+)
 
-# print(expected)
+print(expected)
