@@ -1,7 +1,7 @@
 from itertools import product as pr
+
+
 def get_pins(observed):
-    # count_digits = len(str(observed))  TODO Remove this it is equal to len ot possible digits array
-    all_pins = set()
 
     def get_possible_digits(noted_pin):
         possible = {
@@ -23,17 +23,16 @@ def get_pins(observed):
         return result
 
     list_of_pins = list()
-    pins =  list(pr(*get_possible_digits(observed)))
+    pins = list(pr(*get_possible_digits(observed)))
     for x in pins:
         list_of_pins.append(''.join(x))
     return list_of_pins
 
 
-print(sorted(get_pins(369)))
+print(get_pins(369))
 expected = sorted(
     ['236', '238', '239', '256', '258', '259', '266', '268', '269', '296', '298',
      '299', '336', '338', '339', '356', '358', '359', '366', '368', '369', '396',
      '398', '399', '636', '638', '639', '656', '658', '659', '666', '668', '669', '696', '698', '699']
 )
-
-print(expected)
+print(expected == get_pins(369))
