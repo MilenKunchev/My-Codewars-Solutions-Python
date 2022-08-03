@@ -2,9 +2,9 @@ from itertools import product as pr
 
 
 def get_pins(observed):
-
     def get_possible_digits(noted_pin):
-        possible = {
+        # All adjacent digits
+        adjacent_digits = {
             '1': ['1', '2', '4'],
             '2': ['1', '2', '3', '5'],
             '3': ['2', '3', '6'],
@@ -17,22 +17,22 @@ def get_pins(observed):
             '0': ['0', '8']
         }
         result = []
-        digits = str(noted_pin)
-        for char in digits:
-            result.append(possible[char])
+        for char in observed:
+            # Create array with adjacent digits like: 12 -> [['1', '2', '4'], ['1', '2', '3', '5']]
+            result.append(adjacent_digits[char])
         return result
 
     list_of_pins = list()
     pins = list(pr(*get_possible_digits(observed)))
-    for x in pins:
-        list_of_pins.append(''.join(x))
+    for pin in pins:
+        list_of_pins.append(''.join(pin))
     return list_of_pins
 
 
-print(get_pins(369))
+print(get_pins('369'))
 expected = sorted(
     ['236', '238', '239', '256', '258', '259', '266', '268', '269', '296', '298',
      '299', '336', '338', '339', '356', '358', '359', '366', '368', '369', '396',
      '398', '399', '636', '638', '639', '656', '658', '659', '666', '668', '669', '696', '698', '699']
 )
-print(expected == get_pins(369))
+print(expected == get_pins('369'))
